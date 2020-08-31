@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing Forms</title>
+</head>
+<body>
+	<form method="POST">
+		First Name: <input type="text" name="Firstname"><br>
+		Last Name: <input type="text" name="Lastname"><br>
+		Email: <input type="email" name="Email" required><br>
+		Password: <input type="password" name="password" minlength="7" required><br>
+		Birthday: <input type="date" name="birthday"><br>
+
+		Gender: <br> 
+			<input type="radio" name="gender" value="Male"> Male <br>
+			<input type="radio" name="gender" value="Female"> Female <br>
+
+		Pets:<br>
+			<input type="checkbox" name="dogs"> Dogs<br>
+			<input type="checkbox" name="cats"> Cats<br>
+
+		Cars:<br>
+			<select name="cars">
+				<option value="Volvo" name="cars">Volvo</option>
+				<option value="Audi" name="cars">Audi</option>
+
+			</select><br>
+
+
+		 <input type="submit" value="Register"> 
+		<input type="submit" value="Reset"> 
+
+
+
+	</form>
+</body>
+</html>
