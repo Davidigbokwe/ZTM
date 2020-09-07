@@ -1,0 +1,59 @@
+async function fetchUsers(){
+	const resp = await fetch('http://swapi.dev/api/people/1');
+	const data = await resp.json();
+	console.log(data);
+}
+
+fetchUsers();
+
+
+const urls = [
+  'http://swapi.dev/api/people/1',
+  'http://swapi.dev/api/people/2',
+  'http://swapi.dev/api/people/3',
+  'http://swapi.dev/api/people/4',
+  'http://swapi.dev/api/people/1',
+  'http://swapi.dev/api/people/2',
+  'http://swapi.dev/api/people/3',
+  'http://swapi.dev/api/people/4',
+  'http://swapi.dev/api/people/1',
+  'http://swapi.dev/api/people/2',
+  'http://swapi.dev/api/people/3',
+  'http://swapi.dev/api/people/4',
+  'http://swapi.dev/api/people/1',
+  'http://swapi.dev/api/people/2',
+  'http://swapi.dev/api/people/3',
+  'http://swapi.dev/api/people/4',
+  'http://swapi.dev/api/people/1',
+  'http://swapi.dev/api/people/2',
+  'http://swapi.dev/api/people/3',
+  'http://swapi.dev/api/people/4'
+]
+
+
+async function getUsers(){
+	try{
+		const data = await Promise.all(urls.map(url =>
+		 fetch(url).then(resp => resp.json())
+		 ))
+		 for(i=0; i<data.length; i++){
+			console.log(`user ${i}`,data[i]);
+		}
+    } catch(err){
+		console.log('error', err);
+	}
+
+}
+
+
+// other method of promise
+
+Promise.all(urls.map(url =>
+	 fetch(url).then(people=> people.json())
+)).then(array =>{
+	for(i=0; i<array.length; i++){
+		console.log(array[i])
+	}
+}).catch((err) => console.log('error', err))
+
+console.log('results coming up')
